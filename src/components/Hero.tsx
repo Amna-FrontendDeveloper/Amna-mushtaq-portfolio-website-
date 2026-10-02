@@ -1,46 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { ArrowDown, ArrowUpRight, CheckCircle2, Camera, RotateCcw } from "lucide-react";
+import { ArrowDown, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
 export const Hero: React.FC = () => {
   const [profileImg, setProfileImg] = useState<string>(PERSONAL_INFO.profileImage);
-  const [isCustom, setIsCustom] = useState<boolean>(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("amna_custom_avatar");
-    if (saved) {
-      setProfileImg(saved);
-      setIsCustom(true);
-    } else {
-      setProfileImg(PERSONAL_INFO.profileImage);
+    // Preserve the image uploaded by the user via Change Photo, or default to personal info image
+    try {
+      const saved = localStorage.getItem("amna_custom_avatar");
+      if (saved) {
+        setProfileImg(saved);
+      }
+    } catch {
+      // ignore
     }
   }, []);
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const result = event.target?.result as string;
-        if (result) {
-          setProfileImg(result);
-          setIsCustom(true);
-          try {
-            localStorage.setItem("amna_custom_avatar", result);
-          } catch {
-            // ignore localStorage quota limit if huge image
-          }
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleResetImage = () => {
-    localStorage.removeItem("amna_custom_avatar");
-    setProfileImg(PERSONAL_INFO.profileImage);
-    setIsCustom(false);
-  };
 
   const floatingBadges = [
     { name: "React", pos: "top-4 -left-5 sm:-left-7" },
@@ -154,34 +129,6 @@ export const Hero: React.FC = () => {
                   <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-700/90 backdrop-blur-xs text-white text-[11px] font-bold tracking-wide shadow-md border border-emerald-500/30">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
                     #OpenToWork
-                  </div>
-
-                  {/* Image Upload / Change Overlay Control */}
-                  <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5">
-                    {isCustom && (
-                      <button
-                        type="button"
-                        onClick={handleResetImage}
-                        title="Reset to default artwork"
-                        className="p-1.5 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md transition-colors cursor-pointer"
-                        aria-label="Reset photo"
-                      >
-                        <RotateCcw className="w-3.5 h-3.5" />
-                      </button>
-                    )}
-                    <label
-                      title="Upload your exact image file"
-                      className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-md text-[10px] font-medium transition-colors cursor-pointer"
-                    >
-                      <Camera className="w-3.5 h-3.5" />
-                      <span className="hidden sm:inline">Change Photo</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="hidden"
-                      />
-                    </label>
                   </div>
 
                   {/* Subtle bottom gradient overlay for card readability */}
