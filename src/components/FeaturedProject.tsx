@@ -23,7 +23,6 @@ interface FeaturedProjectProps {
 export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   onOpenCaseStudy,
 }) => {
-  // Allow toggling between the 3 real healthcare platforms or default to Maryam Waseem Surgical Hospital
   const hospitalProjects = [
     FEATURED_HOSPITAL_PROJECT,
     ...OTHER_PROJECTS.filter(
@@ -34,6 +33,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   const [activeProject, setActiveProject] = useState<ProjectItem>(
     FEATURED_HOSPITAL_PROJECT
   );
+
   const [viewMode, setViewMode] = useState<"desktop" | "mobile">("desktop");
 
   const handleDiscussClick = () => {
@@ -44,7 +44,10 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   };
 
   return (
-    <section id="projects" className="py-20 sm:py-24 bg-slate-50/70 border-t border-slate-200/80">
+    <section
+      id="projects"
+      className="py-20 sm:py-24 bg-slate-50/70 border-t border-slate-200/80"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 text-left">
@@ -53,11 +56,14 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
               <span className="w-6 h-px bg-teal-600" />
               Flagship Healthcare Solutions
             </div>
+
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Featured Project
             </h2>
+
             <p className="text-slate-600 text-base mt-2">
-              Designed for real-world patient trust, accessibility, and clear clinical navigation.
+              Designed for real-world patient trust, accessibility, and clear
+              clinical navigation.
             </p>
           </div>
 
@@ -74,8 +80,10 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
           <span className="text-xs font-semibold text-slate-500 mr-1">
             Featured Deployments:
           </span>
+
           {hospitalProjects.map((p) => {
             const isSelected = activeProject.id === p.id;
+
             return (
               <button
                 key={p.id}
@@ -101,6 +109,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
               <span className="w-3 h-3 rounded-full bg-rose-500/80" />
               <span className="w-3 h-3 rounded-full bg-amber-500/80" />
               <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+
               <span className="text-xs font-mono text-slate-300 ml-2 hidden sm:inline">
                 {activeProject.title} — {activeProject.subtitle}
               </span>
@@ -120,6 +129,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                 <Monitor className="w-3.5 h-3.5" />
                 Desktop
               </button>
+
               <button
                 type="button"
                 onClick={() => setViewMode("mobile")}
@@ -139,29 +149,33 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
           <div className="bg-slate-950 p-4 sm:p-8 flex justify-center items-center overflow-hidden">
             {viewMode === "desktop" ? (
               <div className="w-full max-w-4xl relative rounded-xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group">
-                <img
-                  src={
-                    activeProject.desktopImage ||
-                    "/src/assets/images/hospital_web_desktop_1790922285669.jpg"
-                  }
-                  alt={`${activeProject.title} Desktop Interface Mockup`}
-                  className="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-500"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                {activeProject.desktopImage ? (
+                  <img
+                    src={activeProject.desktopImage}
+                    alt={`${activeProject.title} Desktop Interface Mockup`}
+                    className="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-500"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="aspect-video flex items-center justify-center text-slate-400 text-sm">
+                    Desktop preview unavailable
+                  </div>
+                )}
               </div>
             ) : (
               <div className="w-full max-w-xs relative rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800 bg-slate-900">
-                <img
-                  src={
-                    activeProject.mobileImage ||
-                    "/src/assets/images/hospital_web_mobile_1790922298775.jpg"
-                  }
-                  alt={`${activeProject.title} Mobile Screen Mockup`}
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                {activeProject.mobileImage ? (
+                  <img
+                    src={activeProject.mobileImage}
+                    alt={`${activeProject.title} Mobile Screen Mockup`}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="aspect-[9/16] flex items-center justify-center bg-slate-900 text-slate-400 text-sm text-center p-6">
+                    Mobile preview coming soon
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -176,15 +190,18 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                     <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
                       {activeProject.category}
                     </span>
+
                     {activeProject.liveUrl && (
                       <span className="text-xs font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                         Live Online
                       </span>
                     )}
                   </div>
+
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                     {activeProject.title}
                   </h3>
+
                   <p className="text-base text-slate-600 mt-2 leading-relaxed">
                     {activeProject.description}
                   </p>
@@ -198,6 +215,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                       <AlertCircle className="w-4 h-4 text-amber-700 shrink-0" />
                       <h4>The Problem</h4>
                     </div>
+
                     <p className="text-xs sm:text-sm text-amber-950/80 leading-relaxed">
                       {activeProject.problem}
                     </p>
@@ -209,6 +227,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                       <Lightbulb className="w-4 h-4 text-teal-700 shrink-0" />
                       <h4>The Solution</h4>
                     </div>
+
                     <p className="text-xs sm:text-sm text-teal-950/80 leading-relaxed">
                       {activeProject.solution}
                     </p>
@@ -220,6 +239,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                       <Target className="w-4 h-4 text-sky-700 shrink-0" />
                       <h4>The Goal</h4>
                     </div>
+
                     <p className="text-xs sm:text-sm text-sky-950/80 leading-relaxed">
                       {activeProject.goal}
                     </p>
@@ -234,6 +254,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
                     Key Features & UX Modules
                   </h4>
+
                   <ul className="space-y-2.5">
                     {activeProject.highlights.map((point) => (
                       <li
@@ -252,6 +273,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
                     Technologies Used
                   </h4>
+
                   <div className="flex flex-wrap gap-2">
                     {activeProject.technologies.map((tech) => (
                       <span
