@@ -1,3 +1,10 @@
+import maryamDesktop from "../assets/images/maryam_waseem_surgical_preview_1790923208761.jpg";
+import hospitalMobile from "../assets/images/hospital_web_mobile_1790922298775.jpg";
+import shedDesktop from "../assets/images/shed_hospital_preview_1790923172901.jpg";
+import javedDesktop from "../assets/images/javed_care_app_preview_1790923192354.jpg";
+import aiSupportDesktop from "../assets/images/ai_support_app_1790922311596.jpg";
+import profileImage from "../assets/images/amna_exact_developer_desk_1790924575305.jpg";
+
 export interface SkillCategory {
   id: string;
   title: string;
@@ -54,7 +61,7 @@ export const PERSONAL_INFO = {
   githubUrl: "https://github.com/Amna-FrontendDeveloper",
   linkedinUrl: "https://www.linkedin.com/in/amna-mushtaq-a445b7290",
   location: "Pakistan (Remote / Worldwide)",
-  profileImage: "/src/assets/images/amna_exact_developer_desk_1790924575305.jpg",
+  profileImage: profileImage,
 };
 
 export const QUICK_STATS = [
@@ -84,50 +91,96 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "frontend",
     title: "Frontend Development",
-    description: "Building responsive, accessible, and fast client-side experiences.",
+    description:
+      "Building responsive, accessible, and fast client-side experiences.",
     skills: [
       { name: "HTML", focus: "Semantic structure & accessibility" },
       { name: "CSS", focus: "Modern flexbox, grid, animations" },
       { name: "JavaScript", focus: "ES6+, DOM manipulation & async logic" },
-      { name: "React", focus: "Hooks, component architecture, state management" },
-      { name: "Tailwind CSS", focus: "Utility-first design systems & clean layout" },
-      { name: "Responsive Web Design", focus: "Fluid mobile, tablet & desktop scaling" },
+      {
+        name: "React",
+        focus: "Hooks, component architecture, state management",
+      },
+      {
+        name: "Tailwind CSS",
+        focus: "Utility-first design systems & clean layout",
+      },
+      {
+        name: "Responsive Web Design",
+        focus: "Fluid mobile, tablet & desktop scaling",
+      },
     ],
   },
   {
     id: "backend",
     title: "Backend & APIs",
-    description: "Developing practical backends, endpoints, and server logic.",
+    description:
+      "Developing practical backends, endpoints, and server logic.",
     skills: [
-      { name: "Python", focus: "Core programming, scripting, data handling" },
-      { name: "Flask", focus: "Lightweight web apps & microservice endpoints" },
-      { name: "REST APIs", focus: "JSON standards, CRUD architecture, routes" },
-      { name: "API Integration", focus: "Third-party services & external data pipelines" },
+      {
+        name: "Python",
+        focus: "Core programming, scripting, data handling",
+      },
+      {
+        name: "Flask",
+        focus: "Lightweight web apps & microservice endpoints",
+      },
+      {
+        name: "REST APIs",
+        focus: "JSON standards, CRUD architecture, routes",
+      },
+      {
+        name: "API Integration",
+        focus: "Third-party services & external data pipelines",
+      },
     ],
   },
   {
     id: "tools",
     title: "Development & Tools",
-    description: "Modern workflows, version control, and client-side communication.",
+    description:
+      "Modern workflows, version control, and client-side communication.",
     skills: [
       { name: "Git", focus: "Version tracking, branch workflows" },
       { name: "GitHub", focus: "Source control & repository management" },
       { name: "npm", focus: "Package ecosystem & dependency management" },
-      { name: "Vite", focus: "High-performance build tooling & bundling" },
-      { name: "AJAX", focus: "Asynchronous client updates without page reload" },
-      { name: "Fetch API", focus: "Native network requests & error handling" },
+      {
+        name: "Vite",
+        focus: "High-performance build tooling & bundling",
+      },
+      {
+        name: "AJAX",
+        focus: "Asynchronous client updates without page reload",
+      },
+      {
+        name: "Fetch API",
+        focus: "Native network requests & error handling",
+      },
       { name: "JSON", focus: "Data exchange structures & API payloads" },
     ],
   },
   {
     id: "ai-integrations",
     title: "AI & Integrations",
-    description: "Connecting smart capabilities and external platforms to web apps.",
+    description:
+      "Connecting smart capabilities and external platforms to web apps.",
     skills: [
-      { name: "AI/API Integration", focus: "Intelligent conversational logic & models" },
-      { name: "OAuth / Google Login", focus: "Secure client authentication & tokens" },
-      { name: "E-commerce API Integration", focus: "Catalog, order queries & checkout bridges" },
-      { name: "WhatsApp Integration", focus: "Direct business messaging & customer routing" },
+      {
+        name: "AI/API Integration",
+        focus: "Intelligent conversational logic & models",
+      },
+      {
+        name: "OAuth / Google Login",
+        focus: "Secure client authentication & tokens",
+      },
+      {
+        name: "E-commerce API Integration",
+        focus: "Catalog, order queries & checkout bridges",
+      },
+      {
+        name: "WhatsApp Integration",
+        focus: "Direct business messaging & customer routing",
+      },
     ],
   },
 ];
@@ -136,7 +189,8 @@ export const FEATURED_HOSPITAL_PROJECT: ProjectItem = {
   id: "maryam-waseem-surgical-hospital",
   title: "Maryam Waseem Surgical Hospital",
   category: "Healthcare & Surgical Care System",
-  subtitle: "Surgical Specialties, Operating Facilities & Patient Discovery Portal",
+  subtitle:
+    "Surgical Specialties, Operating Facilities & Patient Discovery Portal",
   description:
     "A premier healthcare and surgical hospital web presence designed to give patients and families immediate clarity on consultant surgeons, specialized surgical departments, operating facilities, and 24/7 emergency response.",
   problem:
@@ -153,8 +207,8 @@ export const FEATURED_HOSPITAL_PROJECT: ProjectItem = {
     "Accessible HTML5",
     "Clinical UI/UX",
   ],
-  desktopImage: "/src/assets/images/maryam_waseem_surgical_preview_1790923208761.jpg",
-  mobileImage: "/src/assets/images/hospital_web_mobile_1790922298775.jpg",
+  desktopImage: maryamDesktop,
+  mobileImage: hospitalMobile,
   liveUrl: "https://maryam-waseem-surgical-hospital.ai.studio/",
   isFeatured: true,
   highlights: [
@@ -188,7 +242,7 @@ export const OTHER_PROJECTS: ProjectItem[] = [
       "Semantic HTML5",
     ],
     liveUrl: "https://shed-hospital.ai.studio/",
-    desktopImage: "/src/assets/images/shed_hospital_preview_1790923172901.jpg",
+    desktopImage: shedDesktop,
     highlights: [
       "Structured clinical departments and doctor schedule directory",
       "Emergency hotline and direct patient assistance contact",
@@ -217,7 +271,7 @@ export const OTHER_PROJECTS: ProjectItem[] = [
       "Interactive UI",
     ],
     liveUrl: "https://javedcarejaved-care-app.ai.studio/",
-    desktopImage: "/src/assets/images/javed_care_app_preview_1790923192354.jpg",
+    desktopImage: javedDesktop,
     highlights: [
       "Online appointment reservation interface with confirmation flow",
       "Specialty care directory covering general medicine and specialized clinics",
@@ -245,7 +299,7 @@ export const OTHER_PROJECTS: ProjectItem[] = [
       "Accessible Design",
     ],
     liveUrl: "https://maryam-waseem-surgical-hospital.ai.studio/",
-    desktopImage: "/src/assets/images/maryam_waseem_surgical_preview_1790923208761.jpg",
+    desktopImage: maryamDesktop,
     highlights: [
       "Specialized surgical department index and procedural overviews",
       "Surgeon profiles with qualifications and consultation hours",
@@ -279,7 +333,7 @@ export const OTHER_PROJECTS: ProjectItem[] = [
       "E-commerce Workflow",
       "Google Login Authentication",
     ],
-    desktopImage: "/src/assets/images/ai_support_app_1790922311596.jpg",
+    desktopImage: aiSupportDesktop,
     highlights: [
       "AI-driven query comprehension with structured answers",
       "Integrated WhatsApp direct-chat launch for high-priority leads",
@@ -343,7 +397,8 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "business-websites",
     title: "Business Websites",
-    description: "Professional, responsive websites designed around your business goals.",
+    description:
+      "Professional, responsive websites designed around your business goals.",
     details: [
       "Custom responsive design for desktop, tablet, and mobile",
       "Clear call-to-actions that drive customer inquiries",
@@ -427,22 +482,26 @@ export const PROCESS_STEPS = [
 export const APPROACH_CARDS = [
   {
     title: "Problem First",
-    description: "I focus on understanding the actual problem before deciding what to build.",
+    description:
+      "I focus on understanding the actual problem before deciding what to build.",
     icon: "Target",
   },
   {
     title: "User Focused",
-    description: "The interface should be easy for real users to understand and navigate.",
+    description:
+      "The interface should be easy for real users to understand and navigate.",
     icon: "Users",
   },
   {
     title: "Business Mindset",
-    description: "A website should support a business goal, not simply look attractive.",
+    description:
+      "A website should support a business goal, not simply look attractive.",
     icon: "TrendingUp",
   },
   {
     title: "Clean Development",
-    description: "I aim for structured, maintainable, and responsive solutions.",
+    description:
+      "I aim for structured, maintainable, and responsive solutions.",
     icon: "Code2",
   },
 ];
